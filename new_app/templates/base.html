@@ -1,0 +1,46 @@
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Blog{% endblock %}</title>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-wrapper">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'img/icon.png' %}" class="brand-img" alt="logo">
+        </a>
+        <div class="nav-items">
+            {% if request.user.is_authenticated %}
+                <div class="dropdown">
+                    <img src="{% static 'img/user.png' %}" class="icon-user dropdown-toggle" data-bs-toggle="dropdown"
+                         aria-expanded="false" alt="profile">
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'profile' request.user.pk %}">Посмотреть профиль</a></li>
+                        <li>
+                            <form action="{% url 'logout' %}?next={{ request.get_full_path }}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" class="logout dropdown-item" value="Выйти">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                {% block menu %}{% endblock %}
+            {% else %}
+                <a href="{% url 'login' %}?next={{ request.get_full_path }}" class="nav-enter">Войти</a>
+                <a href="{% url 'register' %}" class="nav-enter">Зарегистрироваться</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

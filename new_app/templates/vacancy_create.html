@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}Home{% endblock %}
+{% block content %}
+   <div class="container">
+    <form method="post">
+        {%include 'partial/vacancy_form.html' with button_text='Создать'%}
+    </form>
+{% endblock %}

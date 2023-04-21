@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}Home{% endblock %}
+{% block menu %} <a class="btn btn-primary" href="{% url 'vacancy_create' %}" role="button" style="margin-right: 20px">Add
+    Vacancy</a>{% endblock %}
+{% block content %}
+<h1>Hello World!</h1>
+{% for vacancy in vacancies %}
+{% if user.is_authenticated %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ vacancy.author }}</h5>
+        <p class="card-text">{{ vacancy.text }}</p>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

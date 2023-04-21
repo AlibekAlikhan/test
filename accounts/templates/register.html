@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        <div class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+        </div>
+        <div class="form_row">
+            {% bootstrap_button button_type="submit" content='Зарегистрироваться' %}
+        </div>
+    </form>
+    <script>
+        const employerDiv = document.getElementsByClassName('mb-3')
+        const employer = document.getElementsByClassName('form-label')
+        const employerInput = document.getElementById('id_username')
+        const employerButton = document.getElementsByClassName('form-check')[0]
+        console.log(employer[0])
+        console.log(employerDiv[1])
+        console.log(employerInput)
+        console.log(employerButton)
+
+        function removeButton() {
+            employerDiv[2].remove()
+            employer[0].innerHTML = 'Название компании'
+            employerInput.placeholder = 'Компания'
+        }
+
+        employerButton.addEventListener('click', removeButton)
+
+
+    </script>
+{% endblock %}

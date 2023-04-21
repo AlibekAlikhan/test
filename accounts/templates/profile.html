@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <section class="main">
+        <div class="wrapper">
+            <div class="account">
+                <div class="container d-flex justify-content-center align-items-center">
+                    <div class="logo-account">
+                        <img src="{{ user_obj.avatar.url }}" alt="account Image"
+                             class="logo-account-logo">
+                    </div>
+                    <div class="account-details">
+                        <div class="username">
+                            <h4>{{ user_obj.username }}<span> {{ user_obj.last_name }}</span></h4>
+                            {% if request.user.pk == user_obj.pk %}
+                                <button type="button" class="btn btn-outline-dark">
+                                    Редактировать профиль
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="account-details">
+                    <h6>{{ user_obj.bio }}</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" style="margin-left: 9%">
+        {#        <div class="row">#}
+        {#            {% for post in user_obj.posts.all %}#}
+        {#                <div class="posts-card card col-md-4" data-bs-toggle="modal"#}
+        {#             data-bs-target="#CommentModal{{ post.id }}">#}
+        {#                    <img src="{{ post.image.url }}" class="image-card card-img-top" alt="Post">#}
+        {#                </div>#}
+        {#                {% include 'partial/comments_modal.html' %}#}
+        {#            {% endfor %}#}
+        {#        </div>#}
+    </div>
+{% endblock %}

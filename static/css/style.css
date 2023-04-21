@@ -1,0 +1,103 @@
+body {
+    margin-top: 60px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #222324;
+    border-bottom: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.nav-wrapper {
+    width: 70%;
+    max-width: 1000px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-img {
+    height: 100%;
+}
+
+.nav-items {
+    height: 22px;
+    position: relative;
+}
+
+.icon-user {
+    width: 35px;
+    height: 35px;
+    background: #222324;
+}
+
+.nav-enter {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+
+.nav-enter:hover {
+    color: gray;
+}
+
+.logout {
+    border: none;
+    background-color: inherit;
+    padding-left: 16px;
+}
+
+.main {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 15%;
+}
+
+.wrapper {
+    width: 70%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-gap: 30px;
+}
+
+.account {
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+.logo-account {
+    width: 200px;
+    height: 200px;
+    flex: 1;
+}
+
+.logo-account-logo {
+    border: 3px solid black;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.account-details {
+    flex: 2;
+}
+
+.username {
+    display: inline;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+}
